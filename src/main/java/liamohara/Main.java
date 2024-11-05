@@ -6,6 +6,11 @@ public class Main {
     }
 
     public String makeDiamond(int diamondSize) {
+
+        if (diamondSize == 0) {
+            return "You must provide diamond size as a positive odd integer.";
+
+        }
         return "";
     }
 }
