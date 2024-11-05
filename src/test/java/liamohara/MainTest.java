@@ -21,4 +21,17 @@ class MainTest {
         assertEquals(expectedString, result);
 
     }
+
+    @Test
+    @DisplayName("Returns 'You must provide diamond size as a positive odd integer' when provided with an negative integer")
+    void makeDiamond_WhenProvidedWithNegativeInteger() {
+
+        int diamondSize = -4;
+        String expectedString = "You must provide diamond size as a positive odd integer.";
+
+        String result = main.makeDiamond(diamondSize);
+
+        assertEquals(expectedString, result);
+
+    }
 }
