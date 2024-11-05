@@ -47,4 +47,17 @@ class MainTest {
         assertEquals(expectedString, result);
 
     }
+
+    @Test
+    @DisplayName("Returns 'Too small. The smallest diamond possible is 3.' when provided with a diamond size of 1")
+    void makeDiamond_WhenProvidedWithDiamondSizeOfOne() {
+
+        int diamondSize = 1;
+        String expectedString = "Too small. The smallest diamond possible is 3.";
+
+        String result = main.makeDiamond(diamondSize);
+
+        assertEquals(expectedString, result);
+
+    }
 }
