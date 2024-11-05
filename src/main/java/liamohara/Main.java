@@ -21,30 +21,30 @@ public class Main {
             String[] diamondArray = new String[diamondSize];
             String[] diamondFormattingArray = new String[diamondSize];
 
-            for (int i = 0; i < diamondCentre ; i++) {
-                int diamondRow = i + 1;
-                while (diamondRow > 0) {
+            for (int i = 0; i < diamondCentre; i++) {
+                if (i == 0) {
                     rowString.append("*");
-                    diamondRow --;
 
+                } else {
+                    int loops = i * 2 + 1;
+                    while (loops > 0) {
+                        rowString.append("*");
+                        loops --;
+
+                    }
                 }
                 diamondArray[i] = rowString.toString();
+                rowString.setLength(0);
+
             }
+            for (int i = diamondCentre, j = diamondCentre -2; i < diamondArray.length; i++, j--) {
 
-            rowString.setLength(0);
-
-            for (int i = diamondCentre + 1; i <= diamondSize; i++) {
-                int diamondRow = i;
-                while (diamondRow <= diamondSize) {
-                    rowString.append("*");
-                    diamondRow ++;
+                    rowString.append(diamondArray[j]);
+                    diamondArray[i] = rowString.toString();
+                    rowString.setLength(0);
 
                 }
-                diamondArray[i -1] = rowString.toString();
-            }
-
-
-        StringBuilder formattedDiamond = new StringBuilder();
+                StringBuilder formattedDiamond = new StringBuilder();
 
         for (int i = 0; i < diamondCentre ; i++) {
             int diamondRow = i + 1;
@@ -55,8 +55,8 @@ public class Main {
             }
             diamondFormattingArray[i] = formattedDiamond.toString();
             formattedDiamond.setLength(0);
-        }
 
+        }
         for (int i = diamondCentre; i < diamondSize; i++) {
             int diamondRow = i + 1;
             while (diamondRow > diamondCentre) {
@@ -66,6 +66,7 @@ public class Main {
             }
             diamondFormattingArray[i] = formattedDiamond.toString();
             formattedDiamond.setLength(0);
+
         }
         StringBuilder assembleDiamond = new StringBuilder();
 
@@ -79,7 +80,6 @@ public class Main {
                     assembleDiamond.append(diamondArray[i]);
 
                 }
-
             }
         diamond = assembleDiamond.toString();
 

@@ -74,5 +74,16 @@ class MainTest {
 
     }
 
+    @Test
+    @DisplayName("Returns five-row diamond when provided with a diamond size of 5")
+    void makeDiamond_WhenProvidedWithDiamondSizeOfFive() {
 
+        int diamondSize = 5;
+        String expectedString = "  *\n ***\n*****\n ***\n  *";
+
+        String result = main.makeDiamond(diamondSize);
+
+        assertEquals(expectedString, result);
+
+    }
 }
