@@ -1,11 +1,25 @@
 package liamohara;
 
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
+    public static void main(String[] args) throws IOException {
+        userPrompt();
     }
 
-    public String makeDiamond(int diamondSize) {
+    public static void userPrompt() throws IOException {
+        System.out.println("So you want a diamond? The size must be provide as an odd positive number.");
+        System.out.println("Please enter the required diamond size and hit ENTER.");
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        int diamondSize = Integer.parseInt(bufferedReader.readLine());
+
+        System.out.println(makeDiamond(diamondSize));
+    }
+
+    public static String makeDiamond(int diamondSize) {
 
         String diamond = "";
 
