@@ -11,10 +11,18 @@ public class Main {
     }
 
     public static void userPrompt() throws IOException {
-        System.out.println("So you want a diamond? The size must be provide as an odd positive number.");
+        System.out.println("So you want a diamond? The size must be provided as an odd positive number.");
         System.out.println("Please enter the required diamond size and hit ENTER.");
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        int diamondSize = Integer.parseInt(bufferedReader.readLine());
+
+        int diamondSize = 0;
+
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+            diamondSize = Integer.parseInt(bufferedReader.readLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid entry. Please only enter numbers.");
+            userPrompt();
+        }
 
         System.out.println(makeDiamond(diamondSize));
     }
